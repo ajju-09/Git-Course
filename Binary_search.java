@@ -1,8 +1,8 @@
 class Node{
     // It creates a node 
     int data;
-    Node leftNode;
-    Node rightNode;
+    Node left;
+    Node right;
 
     public Node(int data){
         this.data = data;
@@ -23,31 +23,29 @@ class BinaryTree{
             root = new Node(data);
         }
         else if (data < root.data) {
-            root.leftNode = insertRec(root.leftNode, data);            
+            root.left = insertRec(root.left, data);            
         }
         else if (data > root.data) {
-            root.rightNode = insertRec(root.rightNode, data);            
+            root.right = insertRec(root.right, data);            
         }
         return root;
     }
 
     // Traversal 
     // Inorder left->root->right
-    // preorder root->left->right
-    // postorder left->right->root
     public void inOrder(){
-        System.out.println("Traversal using in order");
+        System.out.println("Traversal using inorder");
         inOrderRec(root);
     }
 
     public void inOrderRec(Node root){
         if(root != null){
-            inOrderRec(root.leftNode);
+            inOrderRec(root.left);
             System.out.print(root.data+" ");
-            inOrderRec(root.rightNode);
+            inOrderRec(root.right);
         }
     }
-    // PreOrder
+    // PreOrder root->left->right
     public void preOrder(){
         System.out.println();
         System.out.println("Traversal using preorder");
@@ -57,12 +55,12 @@ class BinaryTree{
     public void preOrderRec(Node root){
         if(root != null){
             System.out.print(root.data+" ");
-            inOrderRec(root.leftNode);
-            inOrderRec(root.rightNode);
+            inOrderRec(root.left);
+            inOrderRec(root.right);
         }
     }
 
-    //Postorder
+    //Postorder  left->right->root
     public void postOrder(){
         System.out.println();
         System.out.println("Traversal using postorder");
@@ -71,8 +69,8 @@ class BinaryTree{
 
     public void postOrderRec(Node root){
         if(root != null){
-            inOrderRec(root.leftNode);
-            inOrderRec(root.rightNode);
+            inOrderRec(root.left);
+            inOrderRec(root.right);
             System.out.print(root.data+" ");
         }
     }
