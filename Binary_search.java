@@ -1,8 +1,8 @@
 class Node{
     // It creates a node 
     int data;
-    Node left;
-    Node right;
+    Node leftNode;
+    Node rightNode;
 
     public Node(int data){
         this.data = data;
@@ -23,10 +23,10 @@ class BinaryTree{
             root = new Node(data);
         }
         else if (data < root.data) {
-            root.left = insertRec(root.left, data);            
+            root.leftNode = insertRec(root.leftNode, data);            
         }
         else if (data > root.data) {
-            root.right = insertRec(root.right, data);            
+            root.rightNode = insertRec(root.rightNode, data);            
         }
         return root;
     }
@@ -40,9 +40,9 @@ class BinaryTree{
 
     public void inOrderRec(Node root){
         if(root != null){
-            inOrderRec(root.left);
+            inOrderRec(root.leftNode);
             System.out.print(root.data+" ");
-            inOrderRec(root.right);
+            inOrderRec(root.rightNode);
         }
     }
     // PreOrder root->left->right
@@ -55,8 +55,8 @@ class BinaryTree{
     public void preOrderRec(Node root){
         if(root != null){
             System.out.print(root.data+" ");
-            inOrderRec(root.left);
-            inOrderRec(root.right);
+            inOrderRec(root.leftNode);
+            inOrderRec(root.rightNode);
         }
     }
 
@@ -69,8 +69,8 @@ class BinaryTree{
 
     public void postOrderRec(Node root){
         if(root != null){
-            inOrderRec(root.left);
-            inOrderRec(root.right);
+            inOrderRec(root.leftNode);
+            inOrderRec(root.rightNode);
             System.out.print(root.data+" ");
         }
     }
