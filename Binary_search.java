@@ -87,6 +87,8 @@ public class Binary_search {
         tree.insert(34);
         tree.insert(55);
         tree.insert(9);
+        tree.insert(11);
+        tree.insert(34);
 
         tree.inOrder();
         tree.preOrder();
